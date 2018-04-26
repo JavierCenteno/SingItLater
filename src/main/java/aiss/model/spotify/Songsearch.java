@@ -35,7 +35,7 @@ public class Songsearch {
     @JsonProperty("album")
     private Album album;
     @JsonProperty("artists")
-    private List<Artist_> artists = null;
+    private List<Artist> artists = null;
     @JsonProperty("available_markets")
     private List<String> availableMarkets = null;
     @JsonProperty("disc_number")
@@ -47,7 +47,7 @@ public class Songsearch {
     @JsonProperty("external_ids")
     private ExternalIds externalIds;
     @JsonProperty("external_urls")
-    private ExternalUrls___ externalUrls;
+    private ExternalUrls externalUrls;
     @JsonProperty("href")
     private String href;
     @JsonProperty("id")
@@ -78,12 +78,12 @@ public class Songsearch {
     }
 
     @JsonProperty("artists")
-    public List<Artist_> getArtists() {
+    public List<Artist> getArtists() {
         return artists;
     }
 
     @JsonProperty("artists")
-    public void setArtists(List<Artist_> artists) {
+    public void setArtists(List<Artist> artists) {
         this.artists = artists;
     }
 
@@ -138,12 +138,12 @@ public class Songsearch {
     }
 
     @JsonProperty("external_urls")
-    public ExternalUrls___ getExternalUrls() {
+    public ExternalUrls getExternalUrls() {
         return externalUrls;
     }
 
     @JsonProperty("external_urls")
-    public void setExternalUrls(ExternalUrls___ externalUrls) {
+    public void setExternalUrls(ExternalUrls externalUrls) {
         this.externalUrls = externalUrls;
     }
 
