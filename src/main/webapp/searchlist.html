@@ -62,12 +62,24 @@
 </div>
 
     <center><p>
-        <iframe src="https://open.spotify.com/embed/track/1mea3bSkSGXuIRvnydlB5b" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-        <iframe src="https://open.spotify.com/embed/track/3MjUtNVVq3C8Fn0MP3zhXa" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-        <iframe src="https://open.spotify.com/embed/track/3unsLiH5FXmaDWtT5Imolu" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-        <iframe src="https://open.spotify.com/embed/track/3AszgPDZd9q0DpDFt4HFBy" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-        <iframe src="https://open.spotify.com/embed/track/6AVbtprNn18sQcX54K5MTo" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-        <iframe src="https://open.spotify.com/embed/track/1QV6tiMFM6fSOKOGLMHYYg" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+       <fieldset id="youtube">
+		<legend>
+			YouTube search for
+			<c:out value="${param.searchQuery}" />
+		</legend>
+		<c:forEach items="${requestScope.videos}" var="video">
+
+
+
+			<iframe width="300" height="169"
+				src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}"/> ">
+			</iframe>
+			<br />
+
+
+
+		</c:forEach>
+	</fieldset>
     </p></center>
 
 
