@@ -1,5 +1,5 @@
 
-package aiss.model.spotify;
+package aiss.model.musicxmatch;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,49 +12,36 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "height",
-    "url",
-    "width"
+    "header",
+    "body"
 })
-public class Image {
+public class Message {
 
-    @JsonProperty("height")
-    private Integer height;
-    @JsonProperty("url")
-    private String url;
-    @JsonProperty("width")
-    private Integer width;
+    @JsonProperty("header")
+    private Header header;
+    @JsonProperty("body")
+    private Body body;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("height")
-    public Integer getHeight() {
-        return height;
+    @JsonProperty("header")
+    public Header getHeader() {
+        return header;
     }
 
-    @JsonProperty("height")
-    public void setHeight(Integer height) {
-        this.height = height;
+    @JsonProperty("header")
+    public void setHeader(Header header) {
+        this.header = header;
     }
 
-    @JsonProperty("url")
-    public String getUrl() {
-        return url;
+    @JsonProperty("body")
+    public Body getBody() {
+        return body;
     }
 
-    @JsonProperty("url")
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    @JsonProperty("width")
-    public Integer getWidth() {
-        return width;
-    }
-
-    @JsonProperty("width")
-    public void setWidth(Integer width) {
-        this.width = width;
+    @JsonProperty("body")
+    public void setBody(Body body) {
+        this.body = body;
     }
 
     @JsonAnyGetter

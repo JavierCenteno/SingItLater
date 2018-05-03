@@ -1,5 +1,5 @@
 
-package aiss.model.musixmatch;
+package aiss.model.musicxmatch;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,23 +12,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "track"
+    "message"
 })
-public class TrackList {
+public class BusquedaSearch {
 
-    @JsonProperty("track")
-    private String track;
+    @JsonProperty("message")
+    private Message message;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("track")
-    public String getTrack() {
-        return track;
+    @JsonProperty("message")
+    public Message getMessage() {
+        return message;
     }
 
-    @JsonProperty("track")
-    public void setTrack(String track) {
-        this.track = track;
+    @JsonProperty("message")
+    public void setMessage(Message message) {
+        this.message = message;
     }
 
     @JsonAnyGetter

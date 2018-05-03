@@ -1,5 +1,5 @@
 
-package aiss.model.musixmatch;
+package aiss.model.musicxmatch;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "backlink_url",
     "updated_time"
 })
-public class BusquedaLetraTituloAutor {
+public class Lyrics {
 
     @JsonProperty("lyrics_id")
     private Integer lyricsId;

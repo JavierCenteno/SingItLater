@@ -1,5 +1,5 @@
 
-package aiss.model.spotify;
+package aiss.model.musicxmatch;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,23 +12,36 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "isrc"
+    "status_code",
+    "execute_time"
 })
-public class ExternalIds {
+public class Header {
 
-    @JsonProperty("isrc")
-    private String isrc;
+    @JsonProperty("status_code")
+    private Integer statusCode;
+    @JsonProperty("execute_time")
+    private Double executeTime;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("isrc")
-    public String getIsrc() {
-        return isrc;
+    @JsonProperty("status_code")
+    public Integer getStatusCode() {
+        return statusCode;
     }
 
-    @JsonProperty("isrc")
-    public void setIsrc(String isrc) {
-        this.isrc = isrc;
+    @JsonProperty("status_code")
+    public void setStatusCode(Integer statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    @JsonProperty("execute_time")
+    public Double getExecuteTime() {
+        return executeTime;
+    }
+
+    @JsonProperty("execute_time")
+    public void setExecuteTime(Double executeTime) {
+        this.executeTime = executeTime;
     }
 
     @JsonAnyGetter

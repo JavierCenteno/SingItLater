@@ -1,5 +1,5 @@
 
-package aiss.model.spotify;
+package aiss.model.musicxmatch;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,23 +12,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "spotify"
+    "lyrics"
 })
-public class ExternalUrls {
+public class Body {
 
-    @JsonProperty("spotify")
-    private String spotify;
+    @JsonProperty("lyrics")
+    private Lyrics lyrics;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("spotify")
-    public String getSpotify() {
-        return spotify;
+    @JsonProperty("lyrics")
+    public Lyrics getLyrics() {
+        return lyrics;
     }
 
-    @JsonProperty("spotify")
-    public void setSpotify(String spotify) {
-        this.spotify = spotify;
+    @JsonProperty("lyrics")
+    public void setLyrics(Lyrics lyrics) {
+        this.lyrics = lyrics;
     }
 
     @JsonAnyGetter
