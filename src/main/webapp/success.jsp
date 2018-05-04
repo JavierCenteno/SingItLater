@@ -76,7 +76,7 @@
 			<center><p><iframe width="500" height="315"
 				src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}"/> ">
 			</iframe> 
-			<p><a href="/successlyrics.jsp" id="download-button"
+			<p><a action="SearchController" id="download-button"
 						class="btn-large waves-effect waves-light teal lighten-1">Get lyrics</a></p>
 						</p></center>
 			<br/>
