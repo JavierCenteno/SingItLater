@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import aiss.model.YouTube.VideoSearch;
+import aiss.model.musicxmatch.BusquedaSearch;
+import aiss.model.resources.MusicxmatchResource;
 import aiss.model.resources.YouTubeResource;
 
 /**
@@ -42,14 +44,21 @@ public class SearchController extends HttpServlet {
 		log.log(Level.FINE, "Searching for YouTube songs that contain " + query);
 		YouTubeResource Youtube = new YouTubeResource();
 		VideoSearch VideoResults = Youtube.getVideos(query);
+		
+		log.log(Level.FINE, "Searching for the lyric of song" + query);
+		MusicxmatchResource solicitaLetra = new MusicxmatchResource();
+		BusquedaSearch resultado =solicitaLetra.getLyric(query);
 
-		if (VideoResults!=null){
+		if (VideoResults!=null  && resultado!=null){
 			rd = request.getRequestDispatcher("/success.jsp");
 			request.setAttribute("videos", VideoResults.getItems());
+			
+			//rd = request.getRequestDispatcher("/successlyrics.jsp");
+			request.setAttribute("letras", resultado.getMessage().getBody().getLyrics().getLyricsBody());
 
 
 		} else {
-			log.log(Level.SEVERE, "OMDb object: " + VideoResults);
+			log.log(Level.SEVERE, "Youtube object: " + VideoResults);
 			rd = request.getRequestDispatcher("/error.jsp");
 		}
 		rd.forward(request, response);

@@ -38,9 +38,7 @@
 </nav>
 
 <fieldset>
-    <legend>
-        Lyrics
-    </legend>
+   <legend>MusicxMatch search for <c:out value="${param.searchQuery}"/></legend>
     <span>
     <div>
         <p>
@@ -50,9 +48,11 @@
         
         
         
-        
-       Soon...
-       
+   
+
+<c:forEach items="${requestScope.letras}" var="letra">
+	<span><c:out value="${letra}"/></span><br/>
+</c:forEach>
        
        
        
