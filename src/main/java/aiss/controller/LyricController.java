@@ -49,7 +49,7 @@ public class LyricController extends HttpServlet {
 		BusquedaSearch resultado=solicitaLetra.getLyric(query);
 		
 		if (resultado!=null){
-			rd = request.getRequestDispatcher("/success.jsp");
+			rd = request.getRequestDispatcher("/successlyrics.jsp");
 			request.setAttribute("letras", resultado.getMessage().getBody().getLyrics().getLyricsBody());
 		} else {
 			log.log(Level.SEVERE, "Letra object: " + resultado);

@@ -76,9 +76,25 @@
 			<center><p><iframe width="500" height="315"
 				src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}"/> ">
 			</iframe> 
-			<p><a action="SearchController" id="download-button"
+			<p>
+			
+			
+			
+			<a action="LyricController" id="download-button"
 						class="btn-large waves-effect waves-light teal lighten-1">Get lyrics</a></p>
-						</p></center>
+						</p>
+						
+						<p><div id="searchDiv">
+		<form id="searchForm" action="LyricController" method="post">
+			<input type="text" name="searchQuery" required/> 
+			<input type="submit" name="searchBtn" title="search" value="search">
+		</form>
+
+	</div></p>
+						
+						
+						
+						</center>
 			<br/>
 		</c:forEach>
 		
