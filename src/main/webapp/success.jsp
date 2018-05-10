@@ -65,39 +65,37 @@
 						<p class="light">
 							Related results for <b><c:out value="${param.searchQuery}" /></b>:
 						</p>
-					
 				</div>
 			</div>
 		</div>
-				</center>
-		
+		</center>
+
 
 		<c:forEach items="${requestScope.videos}" var="video">
-			<center><p><iframe width="500" height="315"
-				src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}"/> ">
-			</iframe> 
-			<p>
-			
-			
-			
-			<a action="LyricController" id="download-button"
-						class="btn-large waves-effect waves-light teal lighten-1">Get lyrics</a></p>
-						</p>
-						
-						<p><div id="searchDiv">
-						<script>JSON.parse(localStorage.getItem("searchForm"));</script>
-		<form id="searchForm" action="LyricController" method="post">
-			<input type="text" name="searchQuery" required/> 
-			<input type="submit" name="searchBtn" title="search" value="search">
-		</form>
+			<center>
+				<p>
+					<iframe width="500" height="315"
+						src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}"/> ">
+					</iframe>
+				<p>
+				<p>
+				<div id="searchDiv">
 
-	</div></p>
-						
-						
-						
-						</center>
-			<br/>
+					<form id="searchForm" action="LyricController" method="post"
+						class="btn-large waves-effect waves-light teal lighten-1">
+						<input type="hidden" name="searchQuery" required
+							value="${param.searchQuery}" /> <input type="submit"
+							name="searchBtn" title="search" style="color: white;"
+							value="Get lyrics">
+					</form>
+
+				</div>
+				</p>
+
+
+
+			</center>
+			<br />
 		</c:forEach>
-		
 </body>
 </html>
