@@ -85,6 +85,7 @@
 						</p>
 						
 						<p><div id="searchDiv">
+						<script>JSON.parse(localStorage.getItem("searchForm"));</script>
 		<form id="searchForm" action="LyricController" method="post">
 			<input type="text" name="searchQuery" required/> 
 			<input type="submit" name="searchBtn" title="search" value="search">
