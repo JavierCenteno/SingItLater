@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% String controller = "GoogleDriveFileNew"; %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,6 +84,22 @@
 				on Google Drive</a>
 		</p>
 		</p>
+		
+		<div>
+		<form action="<%= controller %>" method="post">
+			
+						
+			<input type="hidden" name="title" disabled="true" value="${param.searchQuery}">
+								
+			<br>
+			<input type="hidden" name="content" value="${requestScope.letras}">
+			<br>
+			<div class="bottom_links">
+				<button type="submit" class="button">Import on GoogleDrive</button>
+				
+			</div>
+		</form>
+		</div>
 
 
 	</center>
