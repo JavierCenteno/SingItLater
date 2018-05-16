@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<% String controller = "GoogleDriveFileNew"; %>
+<%
+	String controller = "GoogleDriveFileNew";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,36 +74,44 @@
 		</span>
 	</fieldset>
 
-	<center>
-		<p>
-			<a href="images/logos/logo.png" download id="download-button"
-				class="btn-large waves-effect waves-light teal lighten-1">Download
-				as txt</a>
-		</p>
-		<p>
-			<a href="searchlist.html" id="download-button"
-				class="btn-large waves-effect waves-light teal lighten-1">Import
-				on Google Drive</a>
-		</p>
-		</p>
-		
-		<div>
-		<form action="<%= controller %>" method="post">
-			
-						
-			<input type="hidden" name="title" disabled="true" value="${param.searchQuery}">
-								
-			<br>
-			<input type="hidden" name="content" value="${requestScope.letras}">
-			<br>
-			<div class="bottom_links">
-				<button type="submit" class="button">Import on GoogleDrive</button>
-				
-			</div>
+
+
+	<c:forEach items="${requestScope.videos}" var="video"></c:forEach>
+
+	<c:forEach items="${requestScope.videos}" var="video" end="0">
+
+		<center>
+			<center>
+				<p>
+					<iframe class="button-api-frame"
+						src="https://youtubemp3api.com/@api/button/mp3/<c:out value="${video.id.videoId}"/>"
+						width="50%" height="50%" allowtransparency="true" scrolling="no"
+						style="border: none"></iframe>
+				</p>
+			</center>
+			<br />
+	</c:forEach>
+
+
+
+
+
+
+	<div>
+		<form id="uploadGDForm" action="<%=controller%>" method="post"
+			class="btn-large waves-effect waves-light teal lighten-1">
+			<input type="hidden" name="title" required
+				value="${param.searchQuery}" /> <input type="submit"
+				name="importOnGoogleDrive" title="gdrive" style="color: white;"
+				value="Import on Google Drive">
 		</form>
-		</div>
+	</div>
 
-
+	<p>
+	<th>Token:
+	<th>
+	<td><c:out value='${sessionScope["GoogleDrive-token"]}' />
+	</p>
 	</center>
 
 

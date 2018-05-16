@@ -75,18 +75,16 @@
 			<center>
 				<p>
 					<iframe width="500" height="315"
-						src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}"/> ">
-					</iframe>
+						src="https://www.youtube.com/embed/<c:out value="${video.id.videoId}"/>">
+					</iframe>					
 				<p>
 				<p>
 				<div id="searchDiv">
 
 					<form id="searchForm" action="LyricController" method="post"
 						class="btn-large waves-effect waves-light teal lighten-1">
-						<input type="hidden" name="searchQuery" required
-							value="${param.searchQuery}" /> <input type="submit"
-							name="searchBtn" title="search" style="color: white;"
-							value="Get lyrics">
+						<input type="hidden" name="searchQuery" required value="${param.searchQuery}" />
+						<input type="submit" name="searchBtn" title="search" style="color: white;" value="Get lyrics">
 					</form>
 
 				</div>
