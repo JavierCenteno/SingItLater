@@ -1,8 +1,8 @@
 {	
 	"GoogleDrive":{ 
 		"tokenUrl":"https://www.googleapis.com/oauth2/v4/token",
-		"clientId":"535153035131-qgc2hs24kmtthrhaht5h54juo9p3nfnt.apps.googleusercontent.com",
-		"clientSecret":"7cykujMUv1255QM5VC8pd7er" ,
+		"clientId":"478437024200-gh73h7dqkktqt69hqbv0sv96pdfq5b5s.apps.googleusercontent.com",
+		"clientSecret":"QQJpL3RWBSJCOeT4zl6B8K8-" ,
 		"authorizationFormUrl":"https://accounts.google.com/o/oauth2/v2/auth",
 		"scopes":["https://www.googleapis.com/auth/drive"]
 	},
