@@ -1,5 +1,6 @@
 package aiss.model.resources;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import aiss.model.google.drive.FileItem;
@@ -27,6 +28,7 @@ public class GoogleDriveResourceTest {
 		content = "this is a test";
 	}
 
+	@Ignore("Esta prueba necesita un token de acceso reciente para ejecutarse. Eliminar esta anotación si se tiene un token nuevo.")
 	@Test
 	public void createFileTest() {
 		FileItem file = new FileItem();
