@@ -19,7 +19,7 @@ public class MusixmatchResourceTest {
 
 	{
 		musicxmatchResource = new MusicxmatchResource();
-		query = "hello";
+		query = "hello adele";
 	}
 
 	@Test
