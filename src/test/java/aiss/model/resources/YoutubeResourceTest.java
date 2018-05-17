@@ -20,7 +20,7 @@ public class YoutubeResourceTest {
 
 	{
 		youtubeResource = new YouTubeResource();
-		query = "hello";
+		query = "hello adele";
 	}
 
 	@Test
