@@ -49,37 +49,16 @@
 		<span>
 			<div>
 				<p>
-
-
-
-
-
-
-
-
 					<c:forEach items="${requestScope.letras}" var="letra">
 						<span><c:out value="${letra}" /></span>
 						<br />
 					</c:forEach>
-
-
-
-
-
-
-
-
 				</p>
 			</div>
 		</span>
 	</fieldset>
-
-
-
 	<c:forEach items="${requestScope.videos}" var="video"></c:forEach>
-
 	<c:forEach items="${requestScope.videos}" var="video" end="0">
-
 		<center>
 			<center>
 				<p>
@@ -91,35 +70,22 @@
 			</center>
 			<br />
 	</c:forEach>
-
-
-
-
-
-
 	<div>
 		<form id="uploadGDForm" action="<%=controller%>" method="post"
 			class="btn-large waves-effect waves-light teal lighten-1">
 			<input type="hidden" name="title" required
-				value="${param.searchQuery}" /> <input type="submit"
+				value="${param.searchQuery}" />
+			<input type="hidden" name="content" value="${requestScope.letras}"/>
+			<input type="submit"
 				name="importOnGoogleDrive" title="gdrive" style="color: white;"
 				value="Import on Google Drive">
 		</form>
 	</div>
-
 	<p>
-	<th>Token:
-	<th>
-	<td><c:out value='${sessionScope["GoogleDrive-token"]}' />
+		<th>Token:
+		<th>
+		<td><c:out value='${sessionScope["GoogleDrive-token"]}' />
 	</p>
 	</center>
-
-
 </body>
-
-
-
-
-
-
 </html>
