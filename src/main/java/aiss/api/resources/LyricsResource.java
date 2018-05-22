@@ -23,7 +23,7 @@ import org.jboss.resteasy.spi.NotFoundException;
 import aiss.model.Lyrics;
 import aiss.model.repository.LyricsRepository;
 
-@Path("/lyrics")
+@Path("/api/lyrics")
 public class LyricsResource {
 
 	// Campos de clase
@@ -74,7 +74,7 @@ public class LyricsResource {
 	public Lyrics get(@PathParam("lyricsID") String id) {
 		Lyrics lyrics = repository.getLyrics(id);
 		if (lyrics == null) {
-			throw new NotFoundException("404 Not Found");
+			throw new NotFoundException("Not Found");
 		}
 		return lyrics;
 	}
@@ -93,7 +93,7 @@ public class LyricsResource {
 	public Response addPlaylist(@Context UriInfo uriInfo, Lyrics lyrics) {
 		// Comprobar campos
 		if (lyrics.getLyrics() == null || lyrics.getLyrics().equals("")) {
-			throw new BadRequestException("400 Bad Request");
+			throw new BadRequestException("Bad Request");
 		}
 		repository.addLyrics(lyrics);
 		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
@@ -116,7 +116,7 @@ public class LyricsResource {
 	public Response updatePlaylist(Lyrics lyrics) {
 		Lyrics oldLyrics = repository.getLyrics(lyrics.getId());
 		if (oldLyrics == null) {
-			throw new NotFoundException("404 Not Found");
+			throw new NotFoundException("Not Found");
 		}
 		// Comprobar campos
 		if (lyrics.getLyrics() == null || lyrics.getLyrics().equals("")) {
@@ -137,7 +137,7 @@ public class LyricsResource {
 	public Response removePlaylist(@PathParam("lyricsID") String id) {
 		Lyrics lyrics = repository.getLyrics(id);
 		if (lyrics == null) {
-			throw new NotFoundException("404 Not Found");
+			throw new NotFoundException("Not Found");
 		} else {
 			repository.deleteLyrics(id);
 		}

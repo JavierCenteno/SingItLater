@@ -23,7 +23,7 @@ import org.jboss.resteasy.spi.NotFoundException;
 import aiss.model.Video;
 import aiss.model.repository.VideoRepository;
 
-@Path("/video")
+@Path("/api/video")
 public class VideoResource {
 
 	// Campos de clase
@@ -74,7 +74,7 @@ public class VideoResource {
 	public Video get(@PathParam("videoID") String id) {
 		Video video = repository.getVideo(id);
 		if (video == null) {
-			throw new NotFoundException("404 Not Found");
+			throw new NotFoundException("Not Found");
 		}
 		return video;
 	}
@@ -93,7 +93,7 @@ public class VideoResource {
 	public Response addPlaylist(@Context UriInfo uriInfo, Video video) {
 		// Comprobar campos
 		if (video.getUrl() == null || video.getUrl().equals("")) {
-			throw new BadRequestException("400 Bad Request");
+			throw new BadRequestException("Bad Request");
 		}
 		repository.addVideo(video);
 		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
@@ -116,7 +116,7 @@ public class VideoResource {
 	public Response updatePlaylist(Video video) {
 		Video oldvideo = repository.getVideo(video.getId());
 		if (oldvideo == null) {
-			throw new NotFoundException("404 Not Found");
+			throw new NotFoundException("Not Found");
 		}
 		// Comprobar campos
 		if (video.getUrl() == null || video.getUrl().equals("")) {
@@ -137,7 +137,7 @@ public class VideoResource {
 	public Response removePlaylist(@PathParam("videoID") String id) {
 		Video video = repository.getVideo(id);
 		if (video == null) {
-			throw new NotFoundException("404 Not Found");
+			throw new NotFoundException("Not Found");
 		} else {
 			repository.deleteVideo(id);
 		}

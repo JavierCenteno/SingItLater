@@ -9,7 +9,7 @@ public class Lyrics {
 
 	// Inicializador de instancia
 
-	public Lyrics(String url, String lyrics) {
+	public Lyrics(String lyrics) {
 		this.id = null;
 		this.lyrics = lyrics;
 	}

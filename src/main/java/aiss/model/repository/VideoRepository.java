@@ -27,9 +27,12 @@ public class VideoRepository {
 	// Inicializador de instancia
 
 	private VideoRepository() {
+		// Inicializar parámetros del repositorio
 		videoMap = new HashMap<String, Video>();
 		index = -1;
-		// TODO: rellenar esto con canciones
+		// Rellenar el repositorio
+		this.addVideo(new Video("https://www.youtube.com/watch?v=YQHsXMglC9A"));
+		this.addVideo(new Video("https://www.youtube.com/watch?v=3YxaaGgTQYM"));
 	}
 
 	// Métodos de clase
