@@ -55,7 +55,7 @@ public class VideoResource {
 	// Métodos de instancia
 
 	/**
-	 * Request every single video searched.
+	 * Returns all videos searched.
 	 */
 	@GET
 	@Produces("application/json")
@@ -64,14 +64,14 @@ public class VideoResource {
 	}
 
 	/**
-	 * Return the video with its Id = videoId.
+	 * Returns the video with id equal to videoID.
 	 * 
-	 * If video doesn't exits, returns: "404 Not Found".
+	 * If the video does not exist, returns "404 Not Found".
 	 */
 	@GET
 	@Path("/{videoID}")
 	@Produces("application/json")
-	public Video get(@PathParam("videoID") String id) {
+	public Video getVideo(@PathParam("videoID") String id) {
 		Video video = repository.getVideo(id);
 		if (video == null) {
 			throw new NotFoundException("Not Found");
@@ -80,17 +80,16 @@ public class VideoResource {
 	}
 
 	/**
-	 * Add a new video with all fields set.
+	 * Adds a new video.
 	 * 
-	 * If video doesn't exits or is not correct, returns: "400 Bad Request".
+	 * If the video is not correct, returns "400 Bad Request".
 	 * 
-	 * If video is showed successfully, returns: "201 Created" with its URI and its
-	 * fields.
+	 * Otherwise, returns "201 Created", the video's URI and its fields.
 	 */
 	@POST
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response addPlaylist(@Context UriInfo uriInfo, Video video) {
+	public Response addVideo(@Context UriInfo uriInfo, Video video) {
 		// Comprobar campos
 		if (video.getUrl() == null || video.getUrl().equals("")) {
 			throw new BadRequestException("Bad Request");
@@ -104,16 +103,17 @@ public class VideoResource {
 	}
 
 	/**
-	 * Update the video which its fields are sent in JSON (it must include video
-	 * Id).
+	 * Updates the video with the given id using the given fields.
 	 * 
-	 * If video doesn't exits, returns: "404 Not Found".
+	 * If the video does not exist, returns "404 Not Found".
 	 * 
-	 * If it is success, returns: "204 No Content".
+	 * If the video is not correct, returns "400 Bad Request".
+	 * 
+	 * Otherwise, returns "204 No Content".
 	 */
 	@PUT
 	@Consumes("application/json")
-	public Response updatePlaylist(Video video) {
+	public Response updateVideo(Video video) {
 		Video oldvideo = repository.getVideo(video.getId());
 		if (oldvideo == null) {
 			throw new NotFoundException("Not Found");
@@ -130,11 +130,13 @@ public class VideoResource {
 	}
 
 	/**
-	 * Delete video with id = videoId.
+	 * Deletes the video with id equal to videoID.
+	 * 
+	 * If the video does not exist, returns "404 Not Found".
 	 */
 	@DELETE
 	@Path("/{videoID}")
-	public Response removePlaylist(@PathParam("videoID") String id) {
+	public Response deleteVideo(@PathParam("videoID") String id) {
 		Video video = repository.getVideo(id);
 		if (video == null) {
 			throw new NotFoundException("Not Found");

@@ -55,7 +55,7 @@ public class LyricsResource {
 	// Métodos de instancia
 
 	/**
-	 * Request every single lyrics searched.
+	 * Returns all lyrics searched.
 	 */
 	@GET
 	@Produces("application/json")
@@ -64,14 +64,14 @@ public class LyricsResource {
 	}
 
 	/**
-	 * Return the lyrics with its Id = lyricsId.
+	 * Returns the lyrics with its Id = lyricsId.
 	 * 
-	 * If lyrics doesn't exits, returns: "404 Not Found".
+	 * If the lyrics do not exist, returns "404 Not Found".
 	 */
 	@GET
 	@Path("/{lyricsID}")
 	@Produces("application/json")
-	public Lyrics get(@PathParam("lyricsID") String id) {
+	public Lyrics getLyrics(@PathParam("lyricsID") String id) {
 		Lyrics lyrics = repository.getLyrics(id);
 		if (lyrics == null) {
 			throw new NotFoundException("Not Found");
@@ -80,17 +80,16 @@ public class LyricsResource {
 	}
 
 	/**
-	 * Add a new lyrics with all fields set.
+	 * Adds new lyrics.
 	 * 
-	 * If lyrics doesn't exits or is not correct, returns: "400 Bad Request".
+	 * If the lyrics are not correct, returns "400 Bad Request".
 	 * 
-	 * If lyrics is showed successfully, returns: "201 Created" with its URI and its
-	 * fields.
+	 * Otherwise, returns "201 Created", the lyrics' URI and their fields.
 	 */
 	@POST
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response addPlaylist(@Context UriInfo uriInfo, Lyrics lyrics) {
+	public Response addLyrics(@Context UriInfo uriInfo, Lyrics lyrics) {
 		// Comprobar campos
 		if (lyrics.getLyrics() == null || lyrics.getLyrics().equals("")) {
 			throw new BadRequestException("Bad Request");
@@ -104,16 +103,17 @@ public class LyricsResource {
 	}
 
 	/**
-	 * Update the lyrics which its fields are sent in JSON (it must include lyrics
-	 * Id).
+	 * Updates the lyrics with the given id using the given fields.
 	 * 
-	 * If lyrics doesn't exits, returns: "404 Not Found".
+	 * If the lyrics do not exist, returns "404 Not Found".
 	 * 
-	 * If it is success, returns: "204 No Content".
+	 * If the lyrics are not correct, returns "400 Bad Request".
+	 * 
+	 * Otherwise, returns "204 No Content".
 	 */
 	@PUT
 	@Consumes("application/json")
-	public Response updatePlaylist(Lyrics lyrics) {
+	public Response updateLyrics(Lyrics lyrics) {
 		Lyrics oldLyrics = repository.getLyrics(lyrics.getId());
 		if (oldLyrics == null) {
 			throw new NotFoundException("Not Found");
@@ -130,11 +130,13 @@ public class LyricsResource {
 	}
 
 	/**
-	 * Delete lyrics with id = lyricsId.
+	 * Deletes the lyrics with id equal to lyricsID.
+	 * 
+	 * If the lyrics do not exist, returns "404 Not Found".
 	 */
 	@DELETE
 	@Path("/{lyricsID}")
-	public Response removePlaylist(@PathParam("lyricsID") String id) {
+	public Response deleteLyrics(@PathParam("lyricsID") String id) {
 		Lyrics lyrics = repository.getLyrics(id);
 		if (lyrics == null) {
 			throw new NotFoundException("Not Found");
