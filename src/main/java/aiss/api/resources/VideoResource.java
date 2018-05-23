@@ -58,7 +58,7 @@ public class VideoResource {
 	 * Returns all videos searched.
 	 * 
 	 * Use example:
-	 * >>> curl -X GET -i http://localhost:8090/api/video/
+	 * >>> curl -X GET -i http://2-dot-sing-it-later.appspot.com/api/video/
 	 * <<< [{"id":"v0","url":"url0"},{"id":"v1","url":"url1"}]
 	 */
 	@GET
@@ -73,7 +73,7 @@ public class VideoResource {
 	 * If the video does not exist, returns "404 Not Found".
 	 * 
 	 * Use example:
-	 * >>> curl -X GET -i http://localhost:8090/api/video/v0
+	 * >>> curl -X GET -i http://2-dot-sing-it-later.appspot.com/api/video/v0
 	 * <<< {"id":"v0","url":"url0"}
 	 */
 	@GET
@@ -95,7 +95,7 @@ public class VideoResource {
 	 * Otherwise, returns "201 Created", the video's URI and its fields.
 	 * 
 	 * Use example:
-	 * >>> curl -X POST -H 'Content-Type: application/json' -i http://localhost:8090/api/video/ --data '{"url":"new url"}'
+	 * >>> curl -X POST -H 'Content-Type: application/json' -i http://2-dot-sing-it-later.appspot.com/api/video/ --data '{"url":"new url"}'
 	 * <<< {"id":"new id","url":"new url"}
 	 */
 	@POST
@@ -124,7 +124,7 @@ public class VideoResource {
 	 * Otherwise, returns "204 No Content".
 	 * 
 	 * Use example:
-	 * >>> curl -X PUT -H 'Content-Type: application/json' -i http://localhost:8090/api/video/ --data '{"id":"v0","url":"new url"}'
+	 * >>> curl -X PUT -H 'Content-Type: application/json' -i http://2-dot-sing-it-later.appspot.com/api/video/ --data '{"id":"v0","url":"new url"}'
 	 * <<<
 	 */
 	@PUT
@@ -151,7 +151,7 @@ public class VideoResource {
 	 * If the video does not exist, returns "404 Not Found".
 	 * 
 	 * Use example:
-	 * >>> curl -X DELETE -i http://localhost:8090/api/video/v0
+	 * >>> curl -X DELETE -i http://2-dot-sing-it-later.appspot.com/api/video/v0
 	 * <<<
 	 */
 	@DELETE

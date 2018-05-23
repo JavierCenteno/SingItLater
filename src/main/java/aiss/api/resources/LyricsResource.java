@@ -58,7 +58,7 @@ public class LyricsResource {
 	 * Returns all lyrics searched.
 	 * 
 	 * Use example:
-	 * >>> curl -X GET -i http://localhost:8090/api/lyrics/
+	 * >>> curl -X GET -i http://2-dot-sing-it-later.appspot.com/api/lyrics/
 	 * <<< [{"id":"l0","lyrics":"lyrics0"},{"id":"l1","lyrics":"lyrics1"}]
 	 */
 	@GET
@@ -73,7 +73,7 @@ public class LyricsResource {
 	 * If the lyrics do not exist, returns "404 Not Found".
 	 * 
 	 * Use example:
-	 * >>> curl -X GET -i http://localhost:8090/api/lyrics/l0
+	 * >>> curl -X GET -i http://2-dot-sing-it-later.appspot.com/api/lyrics/l0
 	 * <<< {"id":"l0","lyrics":"lyrics0"}
 	 */
 	@GET
@@ -95,7 +95,7 @@ public class LyricsResource {
 	 * Otherwise, returns "201 Created", the lyrics' URI and their fields.
 	 * 
 	 * Use example:
-	 * >>> curl -X POST -H 'Content-Type: application/json' -i http://localhost:8090/api/lyrics/ --data '{"lyrics":"new lyrics"}'
+	 * >>> curl -X POST -H 'Content-Type: application/json' -i http://2-dot-sing-it-later.appspot.com/api/lyrics/ --data '{"lyrics":"new lyrics"}'
 	 * <<< {"id":"new id","lyrics":"new lyrics"}
 	 */
 	@POST
@@ -124,7 +124,7 @@ public class LyricsResource {
 	 * Otherwise, returns "204 No Content".
 	 * 
 	 * Use example:
-	 * >>> curl -X PUT -H 'Content-Type: application/json' -i http://localhost:8090/api/lyrics/ --data '{"id":"l0","lyrics":"new lyrics"}'
+	 * >>> curl -X PUT -H 'Content-Type: application/json' -i http://2-dot-sing-it-later.appspot.com/api/lyrics/ --data '{"id":"l0","lyrics":"new lyrics"}'
 	 * <<<
 	 */
 	@PUT
@@ -150,7 +150,7 @@ public class LyricsResource {
 	 * 
 	 * If the lyrics do not exist, returns "404 Not Found".
 	 * 
-	 * >>> curl -X DELETE -i http://localhost:8090/api/lyrics/l0
+	 * >>> curl -X DELETE -i http://2-dot-sing-it-later.appspot.com/api/lyrics/l0
 	 * <<<
 	 */
 	@DELETE
