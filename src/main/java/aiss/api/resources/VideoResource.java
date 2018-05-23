@@ -56,6 +56,10 @@ public class VideoResource {
 
 	/**
 	 * Returns all videos searched.
+	 * 
+	 * Use example:
+	 * >>> curl -X GET -i http://localhost:8090/api/video/
+	 * <<< [{"id":"v0","url":"url0"},{"id":"v1","url":"url1"}]
 	 */
 	@GET
 	@Produces("application/json")
@@ -67,6 +71,10 @@ public class VideoResource {
 	 * Returns the video with id equal to videoID.
 	 * 
 	 * If the video does not exist, returns "404 Not Found".
+	 * 
+	 * Use example:
+	 * >>> curl -X GET -i http://localhost:8090/api/video/v0
+	 * <<< {"id":"v0","url":"url0"}
 	 */
 	@GET
 	@Path("/{videoID}")
@@ -85,6 +93,10 @@ public class VideoResource {
 	 * If the video is not correct, returns "400 Bad Request".
 	 * 
 	 * Otherwise, returns "201 Created", the video's URI and its fields.
+	 * 
+	 * Use example:
+	 * >>> curl -X POST -H 'Content-Type: application/json' -i http://localhost:8090/api/video/ --data '{"url":"new url"}'
+	 * <<< {"id":"new id","url":"new url"}
 	 */
 	@POST
 	@Consumes("application/json")
@@ -95,7 +107,7 @@ public class VideoResource {
 			throw new BadRequestException("Bad Request");
 		}
 		repository.addVideo(video);
-		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
+		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "getVideo");
 		URI uri = ub.build(video.getId());
 		ResponseBuilder resp = Response.created(uri);
 		resp.entity(video);
@@ -110,6 +122,10 @@ public class VideoResource {
 	 * If the video is not correct, returns "400 Bad Request".
 	 * 
 	 * Otherwise, returns "204 No Content".
+	 * 
+	 * Use example:
+	 * >>> curl -X PUT -H 'Content-Type: application/json' -i http://localhost:8090/api/video/ --data '{"id":"v0","url":"new url"}'
+	 * <<<
 	 */
 	@PUT
 	@Consumes("application/json")
@@ -133,6 +149,10 @@ public class VideoResource {
 	 * Deletes the video with id equal to videoID.
 	 * 
 	 * If the video does not exist, returns "404 Not Found".
+	 * 
+	 * Use example:
+	 * >>> curl -X DELETE -i http://localhost:8090/api/video/v0
+	 * <<<
 	 */
 	@DELETE
 	@Path("/{videoID}")

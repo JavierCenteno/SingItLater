@@ -7,7 +7,12 @@ public class Lyrics {
 	public String id;
 	public String lyrics;
 
-	// Inicializador de instancia
+	// Inicializadores de instancia
+
+	public Lyrics() {
+		this.id = null;
+		this.lyrics = null;
+	}
 
 	public Lyrics(String lyrics) {
 		this.id = null;

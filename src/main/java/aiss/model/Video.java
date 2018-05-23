@@ -7,7 +7,12 @@ public class Video {
 	public String id;
 	public String url;
 
-	// Inicializador de instancia
+	// Inicializadores de instancia
+
+	public Video() {
+		this.id = null;
+		this.url = null;
+	}
 
 	public Video(String url) {
 		this.id = null;

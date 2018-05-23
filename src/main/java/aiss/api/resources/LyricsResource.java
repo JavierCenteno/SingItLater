@@ -56,6 +56,10 @@ public class LyricsResource {
 
 	/**
 	 * Returns all lyrics searched.
+	 * 
+	 * Use example:
+	 * >>> curl -X GET -i http://localhost:8090/api/lyrics/
+	 * <<< [{"id":"l0","lyrics":"lyrics0"},{"id":"l1","lyrics":"lyrics1"}]
 	 */
 	@GET
 	@Produces("application/json")
@@ -67,6 +71,10 @@ public class LyricsResource {
 	 * Returns the lyrics with its Id = lyricsId.
 	 * 
 	 * If the lyrics do not exist, returns "404 Not Found".
+	 * 
+	 * Use example:
+	 * >>> curl -X GET -i http://localhost:8090/api/lyrics/l0
+	 * <<< {"id":"l0","lyrics":"lyrics0"}
 	 */
 	@GET
 	@Path("/{lyricsID}")
@@ -85,6 +93,10 @@ public class LyricsResource {
 	 * If the lyrics are not correct, returns "400 Bad Request".
 	 * 
 	 * Otherwise, returns "201 Created", the lyrics' URI and their fields.
+	 * 
+	 * Use example:
+	 * >>> curl -X POST -H 'Content-Type: application/json' -i http://localhost:8090/api/lyrics/ --data '{"lyrics":"new lyrics"}'
+	 * <<< {"id":"new id","lyrics":"new lyrics"}
 	 */
 	@POST
 	@Consumes("application/json")
@@ -95,7 +107,7 @@ public class LyricsResource {
 			throw new BadRequestException("Bad Request");
 		}
 		repository.addLyrics(lyrics);
-		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "get");
+		UriBuilder ub = uriInfo.getAbsolutePathBuilder().path(this.getClass(), "getLyrics");
 		URI uri = ub.build(lyrics.getId());
 		ResponseBuilder resp = Response.created(uri);
 		resp.entity(lyrics);
@@ -110,6 +122,10 @@ public class LyricsResource {
 	 * If the lyrics are not correct, returns "400 Bad Request".
 	 * 
 	 * Otherwise, returns "204 No Content".
+	 * 
+	 * Use example:
+	 * >>> curl -X PUT -H 'Content-Type: application/json' -i http://localhost:8090/api/lyrics/ --data '{"id":"l0","lyrics":"new lyrics"}'
+	 * <<<
 	 */
 	@PUT
 	@Consumes("application/json")
@@ -133,6 +149,9 @@ public class LyricsResource {
 	 * Deletes the lyrics with id equal to lyricsID.
 	 * 
 	 * If the lyrics do not exist, returns "404 Not Found".
+	 * 
+	 * >>> curl -X DELETE -i http://localhost:8090/api/lyrics/l0
+	 * <<<
 	 */
 	@DELETE
 	@Path("/{lyricsID}")
