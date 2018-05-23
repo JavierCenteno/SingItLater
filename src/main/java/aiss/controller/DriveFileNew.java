@@ -27,7 +27,7 @@ public class DriveFileNew extends HttpServlet {
 					file.setMimeType("text/plain");
 					gdResource.insertFile(file, content);
 					req.setAttribute("message", "File '"+title+"' added to your Drive!");
-					req.getRequestDispatcher("index.html").forward(req,resp);
+					req.getRequestDispatcher("lyricssaved.html").forward(req,resp);
 				}else{
 					req.setAttribute("message", "You must provide a valid title for file");
 					req.setAttribute("content", content);
